@@ -1,0 +1,309 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.ed1_l1;
+
+import java.util.Scanner;
+
+/**
+ * exerc. 348
+ * @author joanp
+ */
+public class ED1_L1 {
+
+  
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] nomes = new String[5];
+        double[] pr1 = new double[5];
+        double[] pr2 = new double[5];
+        double[] media = new double[5];
+
+        // trecho de entrada
+        for (int L = 0; L <= 4; L++) {
+            System.out.println("\ndigite " + (L + 1) + " nome: ");
+            nomes[L] = scanner.nextLine();
+            System.out.println("\ndigite 1a nota:");
+            pr1[L] = scanner.nextDouble();
+            System.out.println("\ndigite 2a nota:");
+            pr2[L] = scanner.nextDouble();
+            media[L] = (pr1[L] + pr2[L]) / 2;
+        }
+
+        // fim do trecho de entrada
+        // trecho de saida
+        System.out.println("\n\n\n\t\t\t\tRELACAO FINAL\n");
+        for (int L = 0; L <= 4; L++) {
+            System.out.println("\n" + (L + 1) + "- " + nomes[L]);
+            System.out.println(pr1[L] + "\t" + pr2[L] + "\t" + media[L]);
+        }
+        // fim do trecho de saida
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.ed1_l1;
+
+import java.util.Scanner;
+
+/**
+ * exerc. 346
+ * @author joanp
+ */
+public class ED1_L1 {
+
+  
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String frase;
+        int op;
+
+        do {
+            System.out.println("\nMENU");
+            System.out.println("\n1 - Imprime o comprimento da frase");
+            System.out.println("\n2 - Imprime os dois primeiros e os dois ultimos caracteres da frase");
+            System.out.println("\n3 - Imprime a frase espelhada");
+            System.out.println("\n4 - Termina o algoritmo");
+            System.out.println("\nOPCAO:");
+            op = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            switch (op) {
+                case 1:
+                    System.out.println("\nDigite uma frase:");
+                    frase = scanner.nextLine();
+                    System.out.println("\nnumero de caracteres da frase: " + frase.length());
+                    break;
+                case 2:
+                    System.out.println("\nDigite uma frase:");
+                    frase = scanner.nextLine();
+                    System.out.println("\nos dois primeiros caracteres: " + frase.substring(0, 2));
+                    System.out.println("\nos dois ultimos caracteres: " + frase.substring(frase.length() - 2));
+                    break;
+                case 3:
+                    System.out.println("\nDigite uma frase:");
+                    frase = scanner.nextLine();
+                    String reversed = new StringBuilder(frase).reverse().toString();
+                    System.out.println(reversed);
+                    break;
+                case 4:
+                    System.out.println("\nFim do algoritmo");
+                    break;
+                default:
+                    System.out.println("\nopcao nao disponivel");
+                    break;
+            }
+            System.out.println("\n\n");
+        } while (op != 4);
+    }
+}
+
+
+        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.ed1_l1;
+
+import java.util.Scanner;
+
+/**
+ * exerc. 351
+ * @author joanp
+ */
+public class ED1_L1 {
+
+  
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] nomes = new String[5];
+        int num;
+
+        // Armazena cinco nomes em um vetor
+        for (int L = 0; L <= 4; L++) {
+            System.out.println("\nnome " + (L + 1) + ": ");
+            nomes[L] = scanner.nextLine();
+        }
+
+        // Solicita um número que corresponde a uma pessoa
+        System.out.println("\nDigite o numero da pessoa: ");
+        num = scanner.nextInt();
+
+        // Verifica se o número está dentro do intervalo válido
+        while (num < 1 || num > 5) {
+            System.out.println("\nNumero fora do intervalo");
+            System.out.println("\nDigite o numero da pessoa: ");
+            num = scanner.nextInt();
+        }
+
+        // Imprime o nome que corresponde ao número
+        System.out.println("\n" + nomes[num - 1]);
+    }
+}
+
+
+        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.ed1_l1;
+
+import java.util.Scanner;
+
+/**
+ * exerc. 356
+ * @author joanp
+ */
+public class ED1_L1 {
+
+  
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] nomes = new String[15];
+        String[] sit = new String[15];
+        double[] pr1 = new double[15];
+        double[] pr2 = new double[15];
+        int[] media = new int[15];
+
+        // trecho de entrada de 15 nomes
+        for (int L = 0; L <= 14; L++) {
+            do {
+                System.out.println("\n\nDigite " + (L + 1) + " nome:");
+                nomes[L] = scanner.nextLine();
+                if (nomes[L].length() > 30) {
+                    System.out.println("\nNomes com ate 30 caracteres");
+                }
+            } while (nomes[L].length() > 30);
+
+            System.out.println("\ndigite 1 nota:");
+            pr1[L] = scanner.nextDouble();
+            System.out.println("\ndigite 2 nota:");
+            pr2[L] = scanner.nextDouble();
+            media[L] = (int) Math.round((pr1[L] + pr2[L]) / 2);
+            sit[L] = media[L] >= 5 ? "AP" : "RP";
+        }
+
+        // fim do trecho de entrada
+        // trecho de saida
+        System.out.println("\n\n\n\t\t\t\tRELACAO FINAL\n");
+        for (int L = 0; L <= 14; L++) {
+            System.out.println("\n" + (L + 1) + "- " + nomes[L] + "\t" + pr1[L] + "\t" + pr2[L] + "\t" + media[L] + "\t" + sit[L]);
+        }
+        // fim do trecho de saida
+    }
+}
+
+
+
+        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.ed1_l1;
+
+import java.util.Scanner;
+
+/**
+ * exerc. 358
+ * @author joanp
+ */
+public class ED1_L1 {
+
+  
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double[] precoCompra = new double[100];
+        double[] precoVenda = new double[100];
+        int totLucroMenor10 = 0;
+        int totLucroMenor20 = 0;
+        int totLucroMaior20 = 0;
+
+        for (int A = 0; A < 100; A++) {
+            System.out.println("\nPreco de compra: ");
+            precoCompra[A] = scanner.nextDouble();
+            System.out.println("\nPreco de venda: ");
+            precoVenda[A] = scanner.nextDouble();
+        }
+
+        for (int A = 0; A < 100; A++) {
+            double lucro = precoVenda[A] - precoCompra[A];
+            if (lucro < 10.0) {
+                totLucroMenor10++;
+            } else if (lucro <= 20.0) {
+                totLucroMenor20++;
+            } else {
+                totLucroMaior20++;
+            }
+        }
+
+        System.out.println("\ntotal de mercadorias com lucro < 10%: " + totLucroMenor10);
+        System.out.println("\ntotal de mercadorias com 10% <= lucro <= 20%: " + totLucroMenor20);
+        System.out.println("\ntotal de mercadorias com lucro > 20%: " + totLucroMaior20);
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.ed1_l1;
+
+import java.util.Scanner;
+
+/**
+ * exerc. 360
+ * @author joanp
+ */
+public class ED1_L1 {
+
+  
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] ultDia = new int[12];
+        String[] signo = new String[12];
+        int data, dia, mes;
+
+        for (int i = 0; i < 12; i++) {
+            System.out.println("\ndigite signo:");
+            signo[i] = scanner.nextLine();
+            System.out.println("\ndigite ultimo dia:");
+            ultDia[i] = scanner.nextInt();
+        }
+
+        System.out.println("\ndigite data no formato ddmm ou 9999 para terminar:");
+        data = scanner.nextInt();
+
+        while (data != 9999) {
+            dia = data / 100;
+            mes = data % 100;
+            mes--;
+            if (dia > ultDia[mes]) {
+                mes = (mes + 1) % 12;
+            }
+            System.out.println("\nsigno: " + signo[mes]);
+            System.out.println("\ndigite data no formato ddmm ou 9999 para terminar:");
+            data = scanner.nextInt();
+        }
+    }
+}
+
+
+
+
+
+        
+

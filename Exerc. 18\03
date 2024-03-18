@@ -1,0 +1,91 @@
+n-460
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.exerc1803;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Usuário
+ */
+public class Exerc1803 {
+
+   public static void main(String[] args) {
+      
+        Scanner scanner = new Scanner(System.in);    
+        int a;  
+        for (int c = 0; c < 3; c++) {           
+            System.out.println("\n\ndigite numero: ");
+            a = scanner.nextInt();           
+            System.out.println("dobro: " + dob(a));
+        }
+    }
+    public static int dob(int x) {
+        return x * 2;
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------
+
+n-470
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.exerc1803;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Usuário
+ */
+public class Exerc1803 {
+
+   public static void main(String[] args) {
+       
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\ndigite um numero maior que zero: ");
+        int num = scanner.nextInt();
+        boolean pri = primo(num);
+        if (pri) {
+            System.out.println("\n" + num + " é primo");
+        } else {
+            System.out.println("\n" + num + " não é primo");
+        }
+    }
+    public static boolean primo(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------
+
+n-480
+
+
+
+---------------------------------------------------------------------------------------------------
+
+n-490
+
+
+
+---------------------------------------------------------------------------------------------------
+
+n-500

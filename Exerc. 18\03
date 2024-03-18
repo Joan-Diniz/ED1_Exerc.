@@ -78,14 +78,194 @@ public class Exerc1803 {
 
 n-480
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.exerc1803;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Usuário
+ */
+public class Exerc1803 {
+
+  public static void main(String[] args) {
+      
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\ndigite numero: ");
+        int n = scanner.nextInt();
+        int x = reverso(n);
+        if (x == n) {
+            System.out.println("\n" + n + " é um número capicua");
+        } else {
+            System.out.println("\n" + n + " não é um número capicua");
+        }
+    }
+    public static int reverso(int num) {
+        int rev = 0;
+        while (num != 0) {
+            rev = rev * 10 + num % 10;
+            num = num / 10;
+        }
+        return rev;
+    }
+}
 
 
 ---------------------------------------------------------------------------------------------------
 
 n-490
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.exerc1803;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Usuário
+ */
+public class Exerc1803 {
+
+  public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] nome = new String[10];
+
+        for (int L = 0; L < 10; L++) {
+            System.out.println("digite palavra em letras minusculas " + (L + 1) + ": ");
+            nome[L] = scanner.nextLine();
+
+            int restantes = restantes(nome[L], 'c');
+            nome[L] = nome[L].replace('c', '*');
+            System.out.println("Número de caracteres retirados: " + restantes);
+        }
+        for (int L = 0; L < 10; L++) {
+            System.out.println("\n" + (L + 1) + " - " + nome[L]);
+        }
+    }
+    public static int restantes(String str, char c) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
 
 
 ---------------------------------------------------------------------------------------------------
 
 n-500
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.exerc1803;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Usuário
+ */
+public class Exerc1803 {
+
+    static int[] num = new int[5];
+    static int[] num1 = new int[5];
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int op;
+        boolean flag = false;
+        boolean flag1 = false;
+
+        do {
+            System.out.println("\n\n\n");
+            System.out.println("\nVETORES");
+            System.out.println("\n1. Dados do VETOR A");
+            System.out.println("\n2. Dados do VETOR B");
+            System.out.println("\n3. Imprime VETORES");
+            System.out.println("\n4. Soma VETORES");
+            System.out.println("\n5. Subtrai VETORES");
+            System.out.println("\n6. Sai do programa");
+            System.out.println("\nOPCAO:");
+            op = scanner.nextInt();
+
+            switch (op) {
+                case 1:
+                    entrada(num, "A");
+                    flag = true;
+                    break;
+                case 2:
+                    entrada(num1, "B");
+                    flag1 = true;
+                    break;
+                case 3:
+                    if (flag && flag1) {
+                        imprime(num, "A");
+                        imprime(num1, "B");
+                    } else {
+                        System.out.println("\nEscolha primeiro opcoes 1 e 2");
+                    }
+                    break;
+                case 4:
+                    if (flag && flag1) {
+                        soma(num, num1);
+                    } else {
+                        System.out.println("\nEscolha primeiro opcoes 1 e 2");
+                    }
+                    break;
+                case 5:
+                    if (flag && flag1) {
+                        subtrai(num, num1);
+                    } else {
+                        System.out.println("\nEscolha primeiro opcoes 1 e 2");
+                    }
+                    break;
+                case 6:
+                    System.out.println("\nSaindo do Algoritmo");
+                    break;
+                default:
+                    System.out.println("\nopcao invalida");
+                    break;
+            }
+        } while (op != 6);
+    }
+    public static void entrada(int[] vetor, String nomeVetor) {
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Digite o valor para " + nomeVetor + "[" + i + "]: ");
+            vetor[i] = scanner.nextInt();
+        }
+    }
+    // Função para imprimir os vetores
+    public static void imprime(int[] vetor, String nomeVetor) {
+        System.out.println("\nVetor " + nomeVetor + ": ");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(vetor[i] + " ");
+        }
+    }
+    // Função para somar os vetores
+    public static void soma(int[] vetorA, int[] vetorB) {
+        System.out.println("\nSoma dos vetores: ");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(vetorA[i] + vetorB[i] + " ");
+        }
+    }
+    // Função para subtrair os vetores
+    public static void subtrai(int[] vetorA, int[] vetorB) {
+        System.out.println("\nSubtracao dos vetores: ");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(vetorA[i] - vetorB[i] + " ");
+        }
+    }
+}

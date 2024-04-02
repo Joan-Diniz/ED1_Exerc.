@@ -1,0 +1,89 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.fila_vetor;
+/**
+ * @author joanp
+ */
+
+import java.util.Scanner;
+
+
+public class Fila_Vetor {
+
+    private int[] valores;
+    private int inicio;
+    private int fim;
+    private int total;
+
+    public Fila_Vetor(int tamanho) {
+        valores = new int[tamanho];
+        inicio = 0;
+        fim = 0;
+        total = 0;
+    }
+
+    public void inserir(int elemento) {
+        if (!estaCheia()) {
+            valores[fim] = elemento;
+            fim = (fim + 1) % valores.length;
+            total++;
+        } else {
+            System.out.println("Fila cheia!");
+        }
+    }
+
+    public int retirar() {
+        if (!estaVazia()) {
+            int elemento = valores[inicio];
+            inicio = (inicio + 1) % valores.length;
+            total--;
+            return elemento;
+        } else {
+            System.out.println("Fila vazia!");
+            return -1;
+        }
+    }
+
+    public boolean estaVazia() {
+        return total == 0;
+    }
+
+    public boolean estaCheia() {
+        return total == valores.length;
+    }
+
+    public static void main(String[] args) {
+        Fila_Vetor fila = new Fila_Vetor(5);
+        Scanner scanner = new Scanner(System.in);
+        int opcao = 0;
+        do {
+            System.out.println("1 - Inserir\n2 - Remover\n3 - Verificar se está vazia\n4 - Sair");
+            opcao = scanner.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Digite o valor a ser inserido:");
+                    int valor = scanner.nextInt();
+                    fila.inserir(valor);
+                    break;
+                case 2:
+                    System.out.println("Removendo valor da fila: " + fila.retirar());
+                    break;
+                case 3:
+                    if (fila.estaVazia()) {
+                        System.out.println("A fila está vazia.");
+                    } else {
+                        System.out.println("A fila não está vazia.");
+                    }
+                    break;
+                case 4:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 4);
+        scanner.close();
+    }
+}
